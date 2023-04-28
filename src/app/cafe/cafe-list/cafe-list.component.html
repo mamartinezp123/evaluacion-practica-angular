@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Región</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let cafe of cafes">
+      <th>{{ cafe.id }}</th>
+      <td>{{ cafe.nombre }}</td>
+      <td>{{ cafe.tipo }}</td>
+      <td>{{ cafe.region }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngFor="let cafeGroupByTipo of cafesGroupByTipo">
+  Total
+  {{
+    cafeGroupByTipo.tipo.toLowerCase().includes("café")
+      ? cafeGroupByTipo.tipo.toLowerCase()
+      : "café " + cafeGroupByTipo.tipo.toLowerCase()
+  }}: {{ cafeGroupByTipo.totalValue }}
+</p>
